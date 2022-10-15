@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <!-- displays site properly based on user's device -->
+
+  <link rel="icon" type="image/png" sizes="32x32" href="./images/favicon-32x32.png">
+
+  <title>Frontend Mentor | Coding Bootcamp Testimonials Slider</title>
+  <link rel="stylesheet" href="./style.css">
+
+</head>
+
+<body>
+  <main>
+    <div class="crousel">
+      <div class="slider showhide" data-id="1">
+        <div class="message-part">
+          <div class="article">
+            <article>
+              “ I’ve been interested in coding for a while but never taken the jump, until now.
+              I couldn’t recommend this course enough. I’m now in the job of my dreams and so
+              excited about the future. ”
+            </article>
+            <div class="user_detail">
+              <h5 class="user_name">Tanya Sinclair</h5>
+              <span class="user_designation">UX Engineer</span>
+            </div>
+          </div>
+        </div>
+        <div class="image-part">
+          <div class="user_image">
+            <img src="./images/image-tanya.jpg" alt="Tanya">
+          </div>
+          <div class="custom_slider">
+            <div class="prev-1" onclick="prevImg()">
+              <img src="./images/icon-prev.svg" alt="Previous">
+            </div>
+            <div class="prev-1" onclick="nextImg()">
+              <img src="./images/icon-next.svg" alt="Next">
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="slider showhide" data-id="2">
+        <div class="message-part">
+          <div class="article">
+            <article>
+              “ If you want to lay the best foundation possible I’d recommend taking this course.
+              The depth the instructors go into is incredible. I now feel so confident about
+              starting up as a professional developer. ”
+            </article>
+            <div class="user_detail">
+              <h5 class="user_name">John Tarkpor</h5>
+              <span class="user_designation">Junior Front-end Developer</span>
+            </div>
+          </div>
+        </div>
+        <div class="image-part">
+          <div class="user_image">
+            <img src="./images/image-john.jpg" alt="John">
+          </div>
+          <div class="custom_slider">
+            <div class="prev-2" onclick="prevImg()">
+              <img src="./images/icon-prev.svg" alt="Previous">
+            </div>
+            <div class="next-2" onclick="nextImg()">
+              <img src="./images/icon-next.svg" alt="Next">
+            </div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </main>
+</body>
+<script type="text/javascript">
+  var showId = 1;
+  var length = 2;
+  window.onload = (function () {
+    let slider = document.querySelector(`[data-id="${showId}"]`);
+    slider.classList.remove("showhide");
+    function nextImg() {
+      let prevShowId = showId;
+      if (showId != length) showId = ++showId;
+      else showId = 1;
+      document.querySelector(`[data-id='${prevShowId}']`).classList.remove('showhide');
+      document.querySelector(`[data-id='${showId}']`).classList.add('showhide');
+    }
+    function prevImg() {
+      let prevShowId = showId;
+      if (showId == 1) showId = length;
+      else showId = --showId;
+      document.querySelector(`[data-id= '${prevShowId}']`).classList.remove('showhide');
+      document.querySelector(`[data-id= '${showId}']`).classList.add('showhide');
+    }
+
+  });
+  function nextImg() {
+    let prevShowId = showId;
+    if (showId != length) showId = ++showId;
+    else showId = 1;
+    document.querySelector(`[data-id='${prevShowId}']`).classList.remove('showhide');
+    document.querySelector(`[data-id='${showId}']`).classList.add('showhide');
+  }
+  function prevImg() {
+    let prevShowId = showId;
+    if (showId == 1) showId = length;
+    else showId = --showId;
+    document.querySelector(`[data-id= '${prevShowId}']`).classList.remove('showhide');
+    document.querySelector(`[data-id= '${showId}']`).classList.add('showhide');
+  }
+
+</script>
+
+</html>
